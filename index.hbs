@@ -1,0 +1,25 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+	
+  <!-- BEGIN INDEX CONTENT -->
+  <div class="content-wrapper padding-top">
+    <div class="content">
+	  
+	  {{#foreach posts}}
+	  
+      <h2><a href="{{url}}">{{{title}}}</a></h2>
+      <p>
+      {{content words="0"}} {{excerpt}}
+      </p>
+	  
+	  {{/foreach}}
+	<hr>  
+	<div class="pagination">
+	{{pagination}}
+	</div>
+	<hr>
+    </div>
+  </div>
+  <!-- END INDEX CONTENT -->

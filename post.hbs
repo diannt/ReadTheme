@@ -1,0 +1,33 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+	
+{{! Everything inside the #post tags pulls data from the post }}
+    {{#post}}
+	
+<div class="content-wrapper padding-top">
+    <div class="content">
+      <h1 class="center caps lh-1 section-title section-margin">{{{title}}}</h1>
+	  <hr>
+	  <p class="byline">by {{author.name}} on {{date format='MMM DD YYYY'}} {{#if tags}} tagged &ndash; {{tags}}{{/if}}</p>
+	  <hr>
+	  {{content}}
+	  
+	  <img class="flourish" src="{{@blog.url}}/assets/images/eos.png">
+	  <!-- <p class="end">&mdash; END &mdash;</p> -->
+	  
+	    <section class="author-box">
+            <div class="author-image">
+                <div class="author-image-inner" style="background-image: url({{author.image}});"></div> 
+            </div>
+            <div class="author-bio">
+                <div class="author-name">{{author.name}}</div>
+                <div class="author-bio-text">{{author.bio}}</div>
+            </div>
+        </section>
+	  
+    </div>
+  </div>
+	
+	{{/post}}
